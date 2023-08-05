@@ -25,7 +25,8 @@ class YoutubeWidgetState extends State<YoutubeWidget> {
     '2Neb4V40K3k',
     'EIKXoY2a52o',
     'uxJ32QWFFlo',
-    'H_5NkjJSThU',
+    '6FKKxSo1Bpw',
+    'I8tHXb5QybM',
   ];
 
   @override
