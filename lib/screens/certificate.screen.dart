@@ -1,3 +1,5 @@
+import 'package:desafio/data/certificate.data.dart';
+import 'package:desafio/models/certificate.model.dart';
 import 'package:desafio/widgets/head.widget.dart';
 import 'package:desafio/widgets/textInfo.widget.dart';
 import 'package:flutter/material.dart';
@@ -11,20 +13,7 @@ class CertificateScreen extends StatefulWidget {
 }
 
 class _CertificateState extends State<CertificateScreen> {
-  final List<String> imagePaths = [
-    'assets/imgs/certificatesImage/backend.png',
-    'assets/imgs/certificatesImage/css.png',
-    'assets/imgs/certificatesImage/etl.jpg',
-    'assets/imgs/certificatesImage/fullStack.png',
-    'assets/imgs/certificatesImage/js.png',
-    'assets/imgs/certificatesImage/powerbi.jpg',
-    'assets/imgs/certificatesImage/react.png',
-    'assets/imgs/certificatesImage/react2.png',
-    'assets/imgs/certificatesImage/sql.png',
-    'assets/imgs/certificatesImage/unity.jpg',
-    'assets/imgs/certificatesImage/web.png',
-    'assets/imgs/certificatesImage/ws.jpg',
-  ];
+  final List<Certificate> certificateData = CertificateData.certificates;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +39,8 @@ class _CertificateState extends State<CertificateScreen> {
                             Padding(
                               padding: const EdgeInsets.all(16.0),
                               child: TextInfo(
-                                text: 'Certificado $index',
+                                text:
+                                    'Certificado ${certificateData[index].name}',
                                 size: 27,
                                 family: 'YsabeauOffice',
                                 type: FontWeight.normal,
@@ -64,14 +54,14 @@ class _CertificateState extends State<CertificateScreen> {
                               ),
                             ),
                             Image.asset(
-                              imagePaths[index],
+                              certificateData[index].logo,
                               fit: BoxFit.scaleDown,
                             ),
                           ],
                         );
                       },
                       autoplay: true,
-                      itemCount: imagePaths.length,
+                      itemCount: certificateData.length,
                       scrollDirection: Axis.vertical,
                       pagination: const SwiperPagination(
                           alignment: Alignment.centerRight),
